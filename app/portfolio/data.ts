@@ -1,10 +1,10 @@
 import {
-  SiCss, SiExpress, SiFastapi, SiFlask, SiGit, SiGithub,
+  SiCss, SiFastapi, SiFlask, SiGit, SiGithub,
   SiHtml5, SiJavascript, SiNodedotjs, SiPostman, SiPython,
   SiReact, SiRender, SiTailwindcss,
 } from "react-icons/si";
 import { VscDatabase } from "react-icons/vsc";
-import { FiCloud, FiCode, FiCpu, FiDatabase } from "react-icons/fi";
+import { FiCloud, FiCode, FiCpu } from "react-icons/fi";
 import type { Project, SkillGroup } from "./types";
 
 export const navItems = ["Home", "Skills", "Experience", "Projects", "Contact"];
@@ -27,18 +27,16 @@ export const skillGroups: SkillGroup[] = [
   ]},
   { category: "Backend", accent: "#8b5cf6", skills: [
     { name: "Python", icon: SiPython, color: "#ffd43b" }, { name: "FastAPI", icon: SiFastapi, color: "#00b88a" },
-    { name: "Flask", icon: SiFlask, color: "#f8fafc" }, { name: "Node.js", icon: SiNodedotjs, color: "#5fa04e" },
-    { name: "Express", icon: SiExpress, color: "#f8fafc" },
+    { name: "Flask", icon: SiFlask, color: "#07546c" }, { name: "Node.js", icon: SiNodedotjs, color: "#5fa04e" },
   ]},
   { category: "Database", accent: "#ff6b6b", skills: [
-    { name: "SQL", icon: VscDatabase, color: "#00f5ff" }, { name: "Oracle", icon: FiDatabase, color: "#f80000" },
+    { name: "SQL", icon: VscDatabase, color: "#00a6a6" },
   ]},
   { category: "AI Systems", accent: "#00f5ff", skills: [
-    { name: "OpenAI API", icon: FiCpu, color: "#10a37f" }, { name: "LLMs", icon: FiCpu, color: "#8b5cf6" },
-    { name: "RAG", icon: VscDatabase, color: "#ff6b6b" }, { name: "AI Chatbots", icon: FiCpu, color: "#00f5ff" },
+    { name: "OpenAI API", icon: FiCpu, color: "#10a37f" }, { name: "AI Chatbots", icon: FiCpu, color: "#07546c" },
   ]},
   { category: "Tools", accent: "#8b5cf6", skills: [
-    { name: "Git", icon: SiGit, color: "#f05032" }, { name: "GitHub", icon: SiGithub, color: "#f8fafc" },
+    { name: "Git", icon: SiGit, color: "#f05032" }, { name: "GitHub", icon: SiGithub, color: "#181717" },
     { name: "Postman", icon: SiPostman, color: "#ff6c37" }, { name: "VS Code", icon: FiCode, color: "#23a8f2" },
   ]},
   { category: "Cloud", accent: "#ff6b6b", skills: [
