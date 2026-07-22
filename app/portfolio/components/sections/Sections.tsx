@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import { FiArrowDown, FiArrowUpRight, FiGithub, FiLinkedin, FiMail, FiSend, FiZap } from "react-icons/fi";
-import { projects, roles, skillGroups, stats } from "../../data";
+import { experienceItems, projects, roles, skillGroups, stats } from "../../data";
 import { sendContactEmail } from "../../lib/emailjs";
 import type { Project } from "../../types";
 import { SectionHeading } from "../ui/SectionHeading";
@@ -35,11 +35,11 @@ export function Hero() {
         <h1>Sanskar Manohare</h1>
         <div className="hero-role">(<Typewriter />)</div>
         <div className="hero-metrics">
-          <div><span>EXPERIENCE</span><strong>19+ months</strong></div>
+          <div><span>EXPERIENCE</span><strong>25+ months</strong></div>
           <div><span>PROJECT SYSTEMS</span><strong>5+</strong></div>
           <div><span>TECHNOLOGIES</span><strong>24+</strong></div>
         </div>
-        <div className="hero-actions"><a className="button button--primary" href="#contact">Résumé on request <FiArrowDown /></a><a className="button button--outline" href="#projects">View projects <FiArrowUpRight /></a></div>
+        <div className="hero-actions"><a className="button button--primary" href="/Sanskar-Manohare-Resume.pdf" target="_blank" rel="noreferrer">View résumé <FiArrowDown /></a><a className="button button--outline" href="#projects">View projects <FiArrowUpRight /></a></div>
         <div className="social-row">
           <span>CONNECT</span>
           <a href="#contact" aria-label="LinkedIn profile available on request"><FiLinkedin /></a>
@@ -70,22 +70,22 @@ function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
 export function About() {
   return (
     <section id="about" className="section-shell content-section">
-      <SectionHeading index="01" eyebrow="About" title="Engineering with intent." copy="I work across the product stack, pairing interface craft with robust backend thinking to create software that feels clear, fast, and genuinely useful." />
+      <SectionHeading index="01" eyebrow="About" title="Frontend engineering, shaped around the user." copy="I build scalable, responsive web applications with React.js, JavaScript, HTML5, and CSS3—combining clean interface craft with dependable REST API integration." />
       <div className="about-grid">
         <motion.div className="profile-card glass" initial={{ opacity: 0, rotateY: -12 }} whileInView={{ opacity: 1, rotateY: 0 }} viewport={{ once: true }}>
           <div className="profile-visual"><div className="monogram">SM</div><div className="orbit-ring" /></div>
-          <div className="profile-info"><span>FULL STACK DEVELOPER</span><h3>Sanskar<br />Manohare</h3><p>Building at the intersection of product design, web engineering, and applied AI.</p></div>
+          <div className="profile-info"><span>FRONTEND DEVELOPER</span><h3>Sanskar<br />Manohare</h3><p>Focused on responsive interfaces, reusable components, UI/UX optimization, and cross-browser quality.</p></div>
         </motion.div>
         <div className="about-copy">
           <div className="metric-row">
-            <div><strong><CountUp value={19} suffix="+" /></strong><span>MONTHS<br />EXPERIENCE</span></div>
-            <div><strong><CountUp value={5} suffix="+" /></strong><span>PRODUCT<br />SYSTEMS</span></div>
+            <div><strong><CountUp value={25} suffix="+" /></strong><span>MONTHS<br />HANDS-ON</span></div>
+            <div><strong><CountUp value={3} /></strong><span>DEVELOPMENT<br />ROLES</span></div>
           </div>
           <div className="timeline-list">
-            <div><span>NOW</span><h4>Full Stack & AI</h4><p>React experiences, FastAPI services, Python automation, and intelligent product integrations.</p></div>
-            <div><span>FOUNDATION</span><h4>Interface Engineering</h4><p>Responsive design systems, reusable components, REST APIs, SQL-backed applications, and Git workflows.</p></div>
+            <div><span>FOCUS</span><h4>Frontend Product Development</h4><p>Responsive React experiences, reusable UI components, REST API integration, debugging, and performance optimization.</p></div>
+            <div><span>EDUCATION</span><h4>B.E. Computer Science & Engineering</h4><p>Jhulelal Institute of Technology · 2019–2023 · 70%</p></div>
           </div>
-          <div className="expertise-cloud">{["React", "FastAPI", "Python", "SQL", "AI Integration", "REST APIs", "Responsive Design"].map((item) => <span key={item}>{item}</span>)}</div>
+          <div className="expertise-cloud">{["React.js", "JavaScript", "HTML5", "CSS3", "REST APIs", "Bootstrap", "Python", "SQL", "Flask", "Git & GitHub", "AWS Cloud"].map((item) => <span key={item}>{item}</span>)}</div>
         </div>
       </div>
     </section>
@@ -130,17 +130,15 @@ export function Skills() {
 export function Experience() {
   return (
     <section id="experience" className="section-shell content-section">
-      <SectionHeading index="03" eyebrow="Experience" title="From interface to infrastructure." copy="A growth path centered on shipping complete products—not isolated layers." />
+      <SectionHeading index="03" eyebrow="Experience" title="Learning fast. Shipping thoughtfully." copy="A hands-on frontend journey across product teams, reusable UI systems, API integrations, and production-quality delivery." />
       <div className="experience-track">
         <motion.div className="experience-line" initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ duration: 1.2 }} />
-        <motion.article className="experience-item" initial={{ opacity: 0, x: 45 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-          <div className="experience-date">19+ MONTHS</div><div className="experience-dot" />
-          <div className="experience-card glass"><div><span>FULL STACK DEVELOPMENT</span><h3>Product-focused engineer</h3></div><p>Building responsive React interfaces and reliable FastAPI/Python services, integrating REST APIs, SQL data, and AI capabilities into cohesive user experiences.</p><ul><li>Designed reusable, responsive frontend systems</li><li>Developed Python APIs and backend workflows</li><li>Connected products with AI and external services</li></ul></div>
-        </motion.article>
-        <motion.article className="experience-item" initial={{ opacity: 0, x: 45 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-          <div className="experience-date">CORE PRACTICE</div><div className="experience-dot" />
-          <div className="experience-card glass"><div><span>CONTINUOUS DELIVERY</span><h3>Systems, quality & craft</h3></div><p>Turning requirements into maintainable components, documented API contracts, and experiences tested across screen sizes.</p><ul><li>Git and GitHub collaboration</li><li>Postman-driven API verification</li><li>Performance-minded implementation</li></ul></div>
-        </motion.article>
+        {experienceItems.map((item, index) => (
+          <motion.article className="experience-item" key={`${item.company}-${item.period}`} initial={{ opacity: 0, x: 45 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * .08 }}>
+            <div className="experience-date">{item.period}</div><div className="experience-dot" />
+            <div className="experience-card glass"><div><span>{item.company}</span><h3>{item.role}</h3></div><p>{item.summary}</p><ul>{item.achievements.map((achievement) => <li key={achievement}>{achievement}</li>)}</ul></div>
+          </motion.article>
+        ))}
       </div>
     </section>
   );

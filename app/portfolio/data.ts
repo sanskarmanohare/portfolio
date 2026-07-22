@@ -13,6 +13,12 @@ export const roles = [
   "Full Stack Developer", "FastAPI Developer", "Python Developer", "React Developer", "AI Integration Developer",
 ];
 
+export const experienceItems = [
+  { period: "SEP 2024 — OCT 2025", role: "Associate Software Developer", company: "Togglr Solutions Pvt Ltd", summary: "Developed responsive React interfaces and connected them to RESTful services for dynamic, reliable product experiences.", achievements: ["Built interactive interfaces with React.js, HTML, CSS, and JavaScript", "Collaborated across UI/UX and backend teams on API integration", "Improved responsiveness, browser compatibility, debugging, and performance", "Contributed to code reviews and agile team ceremonies"] },
+  { period: "MAR 2024 — JUN 2024", role: "Jr. Software Developer", company: "Sajal Technologies", summary: "Created reusable frontend building blocks and integrated asynchronous product data in an agile development environment.", achievements: ["Built reusable UI components for scalable applications", "Implemented React Router for seamless client-side navigation", "Integrated third-party APIs and handled asynchronous data", "Worked with mentorship through agile development practices"] },
+  { period: "JUL 2022 — JAN 2023", role: "Front End Developer Intern", company: "Sabertooth Technologies", summary: "Built a practical foundation in modern frontend development while contributing to live product work under senior guidance.", achievements: ["Trained hands-on with HTML, CSS, JavaScript, and React.js", "Debugged frontend modules and improved UI/UX", "Contributed to live projects with guidance from the team", "Gained exposure to the complete software development lifecycle"] },
+] as const;
+
 export const skillGroups: SkillGroup[] = [
   { category: "Frontend", accent: "#00f5ff", skills: [
     { name: "React", icon: SiReact, color: "#61dafb" }, { name: "HTML", icon: SiHtml5, color: "#e34f26" },
@@ -95,7 +101,7 @@ export const projects: Project[] = [
 
 export const stats = [
   { value: 5, suffix: "+", label: "Product systems" },
-  { value: 19, suffix: "+", label: "Months experience" },
+  { value: 25, suffix: "+", label: "Months hands-on experience" },
   { value: 24, suffix: "+", label: "Technologies" },
   { value: 100, suffix: "%", label: "Craft commitment" },
 ];
