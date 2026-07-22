@@ -1,8 +1,8 @@
 "use client";
+/* eslint-disable @next/next/no-img-element -- Sites does not support vinext's runtime image optimizer. */
 
 import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { FiArrowDown, FiArrowUpRight, FiGithub, FiLinkedin, FiMail, FiSend, FiZap } from "react-icons/fi";
 import { experienceItems, projects, roles, skillGroups, stats } from "../../data";
@@ -49,7 +49,7 @@ export function Hero() {
         </div>
       </motion.div>
       <motion.div className="hero-portrait" initial={{ opacity: 0, scale: .92, x: 34 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: .85, delay: .12 }}>
-        <div className="portrait-backdrop"><Image className="portrait-photo" src="/sanskar-professional.jpeg" alt="Sanskar Manohare in a brown blazer" width={672} height={1536} sizes="(max-width: 700px) 88vw, 520px" priority unoptimized /><span className="portrait-code">&lt;/&gt;</span></div>
+        <div className="portrait-backdrop"><img className="portrait-photo" src="/sanskar-professional.jpeg" alt="Sanskar Manohare in a brown blazer" width="672" height="1536" loading="eager" fetchPriority="high" decoding="async" /><span className="portrait-code">&lt;/&gt;</span></div>
         <div className="portrait-chip portrait-chip--top"><i /> React + FastAPI</div>
         <div className="portrait-chip portrait-chip--bottom"><i /> AI Integration</div>
       </motion.div>
@@ -74,7 +74,7 @@ export function About() {
       <SectionHeading index="01" eyebrow="About" title="Frontend engineering, shaped around the user." copy="I build scalable, responsive web applications with React.js, JavaScript, HTML5, and CSS3—combining clean interface craft with dependable REST API integration." />
       <div className="about-grid">
         <motion.div className="profile-card glass" initial={{ opacity: 0, rotateY: -12 }} whileInView={{ opacity: 1, rotateY: 0 }} viewport={{ once: true }}>
-          <div className="profile-visual"><Image className="about-photo" src="/sanskar-about.jpeg" alt="Sanskar Manohare" width={1152} height={2048} sizes="(max-width: 700px) 100vw, 42vw" unoptimized /><div className="profile-photo-label"><span>BEYOND THE CODE</span><strong>Curious by nature.</strong></div></div>
+          <div className="profile-visual"><img className="about-photo" src="/sanskar-about.jpeg" alt="Sanskar Manohare" width="1152" height="2048" loading="lazy" decoding="async" /><div className="profile-photo-label"><span>BEYOND THE CODE</span><strong>Curious by nature.</strong></div></div>
           <div className="profile-info"><span>FRONTEND DEVELOPER</span><h3>Sanskar<br />Manohare</h3><p>Focused on responsive interfaces, reusable components, UI/UX optimization, and cross-browser quality.</p></div>
         </motion.div>
         <div className="about-copy">
