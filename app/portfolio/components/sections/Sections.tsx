@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
-import { FiArrowDown, FiArrowUpRight, FiCode, FiGithub, FiLinkedin, FiMail, FiSend, FiZap } from "react-icons/fi";
+import { FiArrowDown, FiArrowUpRight, FiGithub, FiLinkedin, FiMail, FiSend, FiZap } from "react-icons/fi";
 import { projects, roles, skillGroups, stats } from "../../data";
 import { sendContactEmail } from "../../lib/emailjs";
 import type { Project } from "../../types";
@@ -93,22 +93,34 @@ export function About() {
 }
 
 export function Skills() {
-  const [active, setActive] = useState(0);
-  const group = skillGroups[active];
+  const technologies = skillGroups.flatMap((group) =>
+    group.skills.map((skill) => ({ ...skill, category: group.category })),
+  );
   return (
-    <section id="skills" className="section-shell content-section skills-section">
-      <SectionHeading index="02" eyebrow="Skills universe" title="A connected technology orbit." copy="Explore the systems I use to move from product idea to polished, production-ready experience." />
-      <div className="skill-console glass">
-        <div className="skill-tabs" role="tablist" aria-label="Skill categories">
-          {skillGroups.map((item, index) => <button key={item.category} role="tab" aria-selected={active === index} onClick={() => setActive(index)}><span>0{index + 1}</span>{item.category}</button>)}
-        </div>
-        <div className="skill-galaxy" style={{ "--skill-accent": group.accent } as React.CSSProperties}>
-          <div className="galaxy-core"><FiCode /><span>{group.category}</span></div>
-          <div className="orbit orbit--1" /><div className="orbit orbit--2" />
-          {group.skills.map((skill, index) => {
-            const angle = (360 / group.skills.length) * index - 90;
-            return <motion.button key={skill.name} className="skill-planet" style={{ "--angle": `${angle}deg`, "--planet-color": skill.color } as React.CSSProperties} initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: index * 0.06 }} title={skill.name}><skill.icon /><span>{skill.name}</span></motion.button>;
-          })}
+    <section id="skills" className="skills-section content-section">
+      <div className="section-shell">
+        <motion.header className="technologies-heading" initial={{ opacity: 0, y: 26 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <span>02 / MY TOOLBOX</span>
+          <h2>Technologies</h2>
+          <i aria-hidden="true" />
+          <p>These are the technologies I&apos;ve worked with across frontend, backend, data, AI, tools, and cloud.</p>
+        </motion.header>
+        <div className="technology-grid" aria-label="Technologies I work with">
+          {technologies.map((skill, index) => (
+            <motion.article
+              className="technology-card"
+              key={`${skill.category}-${skill.name}`}
+              style={{ "--tech-color": skill.color } as React.CSSProperties}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: (index % 6) * .045, duration: .45 }}
+            >
+              <skill.icon aria-hidden="true" />
+              <h3>{skill.name}</h3>
+              <span>{skill.category}</span>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>
