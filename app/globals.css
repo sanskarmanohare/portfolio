@@ -234,24 +234,24 @@ body { background: #E6FAF5; }
 }
 
 /* Technology card wall */
-.skills-section { position:relative; overflow:hidden; background:#063f52; color:#f5fffc; isolation:isolate; }
-.skills-section::before { content:""; position:absolute; inset:0; z-index:-2; opacity:.34; background-image:linear-gradient(28deg,transparent 46%,rgba(37,220,157,.15) 47%,rgba(37,220,157,.15) 48%,transparent 49%),linear-gradient(152deg,transparent 46%,rgba(37,220,157,.11) 47%,rgba(37,220,157,.11) 48%,transparent 49%); background-size:190px 145px; animation:network-drift 22s linear infinite; }
-.skills-section::after { content:""; position:absolute; inset:0; z-index:-1; opacity:.6; background-image:radial-gradient(circle,#25dc9d 0 2px,transparent 3px),radial-gradient(circle,#11bdb7 0 2px,transparent 3px); background-size:210px 160px,260px 220px; background-position:30px 20px,120px 85px; mask-image:linear-gradient(90deg,#000,transparent 38%,#000); }
+.skills-section { position:relative; overflow:hidden; background:#E6FAF5; color:#07546c; isolation:isolate; }
+.skills-section::before { content:""; position:absolute; inset:0; z-index:-2; opacity:.22; background-image:linear-gradient(28deg,transparent 46%,rgba(17,189,183,.2) 47%,rgba(17,189,183,.2) 48%,transparent 49%),linear-gradient(152deg,transparent 46%,rgba(7,84,108,.1) 47%,rgba(7,84,108,.1) 48%,transparent 49%); background-size:190px 145px; animation:network-drift 22s linear infinite; }
+.skills-section::after { content:""; position:absolute; inset:0; z-index:-1; opacity:.32; background-image:radial-gradient(circle,#11bdb7 0 2px,transparent 3px),radial-gradient(circle,#07546c 0 2px,transparent 3px); background-size:210px 160px,260px 220px; background-position:30px 20px,120px 85px; mask-image:linear-gradient(90deg,#000,transparent 38%,#000); }
 @keyframes network-drift { to { background-position:190px 145px,-190px 145px; } }
 .technologies-heading { max-width:720px; margin-bottom:62px; }
-.technologies-heading>span { color:#6de5c3; font:600 10px Space Grotesk; letter-spacing:.22em; }
-.technologies-heading h2 { margin:10px 0 9px; color:#f5fffc; font:700 clamp(3.4rem,6vw,5.8rem)/.95 Space Grotesk; letter-spacing:-.055em; }
+.technologies-heading>span { color:#11a8a4; font:600 10px Space Grotesk; letter-spacing:.22em; }
+.technologies-heading h2 { margin:10px 0 9px; color:#07546c; font:700 clamp(3.4rem,6vw,5.8rem)/.95 Space Grotesk; letter-spacing:-.055em; }
 .technologies-heading>i { display:block; width:min(390px,70vw); height:4px; background:linear-gradient(90deg,#25dc9d,#11bdb7); border-radius:10px; }
-.technologies-heading p { margin:18px 0 0; color:rgba(230,250,245,.76); font-size:16px; line-height:1.6; }
+.technologies-heading p { margin:18px 0 0; color:#4f7c87; font-size:16px; line-height:1.6; }
 .technology-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:30px 28px; }
-.technology-card { --tech-color:#11bdb7; min-height:205px; border:1px solid rgba(230,250,245,.12); border-radius:13px; background:rgba(3,33,45,.72); box-shadow:0 3px 0 var(--tech-color),0 9px 18px color-mix(in srgb,var(--tech-color) 18%,transparent),inset 0 1px rgba(255,255,255,.04); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:22px 12px 18px; position:relative; overflow:hidden; transition:transform .3s,border-color .3s,box-shadow .3s; }
+.technology-card { --tech-color:#11bdb7; min-height:205px; border:1px solid rgba(7,84,108,.12); border-radius:13px; background:rgba(255,255,255,.52); box-shadow:0 3px 0 var(--tech-color),0 9px 18px color-mix(in srgb,var(--tech-color) 14%,transparent),inset 0 1px rgba(255,255,255,.7); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:22px 12px 18px; position:relative; overflow:hidden; transition:transform .3s,border-color .3s,box-shadow .3s; backdrop-filter:blur(12px); }
 .technology-card::before { content:""; position:absolute; width:120px; height:120px; border-radius:50%; top:-75px; right:-65px; background:var(--tech-color); filter:blur(30px); opacity:.1; transition:.3s; }
 .technology-card:hover { transform:translateY(-8px); border-color:color-mix(in srgb,var(--tech-color) 55%,transparent); box-shadow:0 4px 0 var(--tech-color),0 18px 34px color-mix(in srgb,var(--tech-color) 24%,transparent); }
 .technology-card:hover::before { opacity:.2; }
 .technology-card svg { width:72px; height:72px; color:var(--tech-color); filter:drop-shadow(0 6px 15px color-mix(in srgb,var(--tech-color) 28%,transparent)); transition:transform .3s; }
 .technology-card:hover svg { transform:scale(1.08) rotate(-3deg); }
-.technology-card h3 { margin:22px 0 5px; color:#f5fffc; font:500 16px Space Grotesk; text-align:center; }
-.technology-card>span { color:rgba(230,250,245,.5); font:500 8px Space Grotesk; letter-spacing:.16em; text-transform:uppercase; }
+.technology-card h3 { margin:22px 0 5px; color:#07546c; font:600 16px Space Grotesk; text-align:center; }
+.technology-card>span { color:#668b94; font:500 8px Space Grotesk; letter-spacing:.16em; text-transform:uppercase; }
 @media (max-width:1100px) { .technology-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } }
 @media (max-width:760px) { .technologies-heading { margin-bottom:42px; }.technologies-heading h2 { font-size:clamp(3rem,15vw,4.3rem); }.technology-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }.technology-card { min-height:175px; }.technology-card svg { width:58px;height:58px; } }
 @media (max-width:390px) { .technology-grid { grid-template-columns:1fr; } }
