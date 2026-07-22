@@ -36,5 +36,5 @@ test("keeps portfolio content centralized and motion accessible", async () => {
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /@media \(max-width:\s*700px\)/);
   assert.match(page, /<Portfolio \/>/);
-  assert.match(layout, /themeColor:\s*"#050816"/);
+  assert.match(layout, /themeColor:\s*"#E6FAF5"/);
 });

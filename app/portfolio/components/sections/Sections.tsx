@@ -1,17 +1,13 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import { FiArrowDown, FiArrowUpRight, FiCode, FiGithub, FiLinkedin, FiMail, FiSend, FiZap } from "react-icons/fi";
 import { projects, roles, skillGroups, stats } from "../../data";
 import { sendContactEmail } from "../../lib/emailjs";
 import type { Project } from "../../types";
-import { Magnetic } from "../ui/Magnetic";
 import { SectionHeading } from "../ui/SectionHeading";
-
-const HeroScene = dynamic(() => import("../three/HeroScene"), { ssr: false });
 
 function Typewriter() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -28,26 +24,22 @@ function Typewriter() {
     }, done ? 1450 : deleting ? 32 : 62);
     return () => window.clearTimeout(timer);
   }, [text, deleting, roleIndex]);
-  return <span>{text}<i aria-hidden="true" /></span>;
+  return <span className="typewriter">{text}<i aria-hidden="true" /></span>;
 }
 
 export function Hero() {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 900], [0, 180]);
-  const opacity = useTransform(scrollY, [0, 650], [1, 0]);
   return (
     <section id="home" className="hero section-shell">
-      <HeroScene />
-      <motion.div className="hero-copy" style={{ y, opacity }}>
-        <motion.div className="status-pill" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}><span />Available for ambitious builds</motion.div>
+      <motion.div className="hero-copy" initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .75 }}>
         <p className="hero-overline">HELLO, I&apos;M</p>
-        <h1><span>Sanskar</span><span className="outline-text">Manohare.</span></h1>
-        <div className="typewriter" aria-label={`Role: ${roles[0]}`}><Typewriter /></div>
-        <p className="hero-intro">I engineer fast, intelligent digital products—from cinematic React interfaces to dependable FastAPI systems and AI-native workflows.</p>
-        <div className="hero-actions">
-          <Magnetic><a className="button button--primary" href="#projects">View projects <FiArrowUpRight /></a></Magnetic>
-          <Magnetic><a className="button button--outline" href="#contact">Résumé on request <FiArrowDown /></a></Magnetic>
+        <h1>Sanskar Manohare</h1>
+        <div className="hero-role">(<Typewriter />)</div>
+        <div className="hero-metrics">
+          <div><span>EXPERIENCE</span><strong>19+ months</strong></div>
+          <div><span>PROJECT SYSTEMS</span><strong>5+</strong></div>
+          <div><span>TECHNOLOGIES</span><strong>24+</strong></div>
         </div>
+        <div className="hero-actions"><a className="button button--primary" href="#contact">Résumé on request <FiArrowDown /></a><a className="button button--outline" href="#projects">View projects <FiArrowUpRight /></a></div>
         <div className="social-row">
           <span>CONNECT</span>
           <a href="#contact" aria-label="LinkedIn profile available on request"><FiLinkedin /></a>
@@ -55,7 +47,11 @@ export function Hero() {
           <a href="#contact" aria-label="Email Sanskar"><FiMail /></a>
         </div>
       </motion.div>
-      <a className="scroll-cue" href="#about"><span>SCROLL TO EXPLORE</span><i /></a>
+      <motion.div className="hero-portrait" initial={{ opacity: 0, scale: .92, x: 34 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: .85, delay: .12 }} aria-label="Portrait placeholder for Sanskar Manohare">
+        <div className="portrait-backdrop"><span className="portrait-code">&lt;/&gt;</span><div className="portrait-initials">SM</div><div className="portrait-orbit portrait-orbit--one" /><div className="portrait-orbit portrait-orbit--two" /></div>
+        <div className="portrait-chip portrait-chip--top"><i /> React + FastAPI</div>
+        <div className="portrait-chip portrait-chip--bottom"><i /> AI Integration</div>
+      </motion.div>
     </section>
   );
 }

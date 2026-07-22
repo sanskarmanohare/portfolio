@@ -7,7 +7,7 @@ import { VscDatabase } from "react-icons/vsc";
 import { FiCloud, FiCode, FiCpu, FiDatabase } from "react-icons/fi";
 import type { Project, SkillGroup } from "./types";
 
-export const navItems = ["About", "Skills", "Experience", "Projects", "Contact"];
+export const navItems = ["Home", "Skills", "Experience", "Projects", "Contact"];
 
 export const roles = [
   "Full Stack Developer", "FastAPI Developer", "Python Developer", "React Developer", "AI Integration Developer",
