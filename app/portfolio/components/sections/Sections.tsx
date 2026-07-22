@@ -198,27 +198,31 @@ export function Statistics() {
 }
 
 export function Contact() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "setup" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   return (
     <section id="contact" className="section-shell content-section contact-section">
-      <SectionHeading index="07" eyebrow="Contact" title="Let’s build the next useful thing." copy="Have a product idea, frontend challenge, API build, or AI workflow in mind? Send the brief and let’s make it tangible." />
       <div className="contact-grid">
-        <div className="contact-aside"><span>START A CONVERSATION</span><h3>Good products begin with a clear problem.</h3><p>The form opens your email app with the project brief ready to send. Add the preferred email address in the content file when available.</p><div className="contact-signal"><i /><span>Current status<strong>Available for select projects</strong></span></div></div>
+        <motion.div className="contact-aside" initial={{ opacity: 0, x: -35 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+          <span>07 / CONTACT</span><h2>Contact Me</h2><p>I&apos;m active on LinkedIn, GitHub, and email. Have an opportunity or an idea? Let&apos;s start a conversation.</p>
+          <div className="contact-illustration" aria-hidden="true"><div className="contact-orbit"><FiMail /></div><div className="contact-skyline"><i /><i /><i /></div></div>
+          <div className="contact-links"><a href="mailto:sanskarmanohare855@gmail.com"><FiMail /> Email</a><a href="#contact"><FiLinkedin /> LinkedIn</a><a href="#contact"><FiGithub /> GitHub</a></div>
+          <a className="button button--primary contact-resume" href="/Sanskar-Manohare-Resume.pdf" target="_blank" rel="noreferrer">View my résumé <FiArrowUpRight /></a>
+        </motion.div>
         <form className="contact-form glass" onSubmit={async (event) => {
           event.preventDefault();
           setStatus("sending");
           const form = new FormData(event.currentTarget);
           try {
-            const result = await sendContactEmail({ name: String(form.get("name")), email: String(form.get("email")), project: String(form.get("project")), message: String(form.get("message")) });
-            setStatus(result.configured ? "sent" : "setup");
-            if (result.configured) event.currentTarget.reset();
+            await sendContactEmail({ name: String(form.get("name")), email: String(form.get("email")), message: String(form.get("message")) });
+            setStatus("sent"); event.currentTarget.reset();
           } catch { setStatus("error"); }
         }}>
-          <div className="field-row"><label><span>Your name</span><input required name="name" placeholder="How should I address you?" /></label><label><span>Email</span><input required type="email" name="email" placeholder="you@company.com" /></label></div>
-          <label><span>Project type</span><select name="project"><option>Full-stack product</option><option>React frontend</option><option>FastAPI / Python backend</option><option>AI integration</option><option>Something else</option></select></label>
-          <label><span>Tell me about it</span><textarea required name="message" rows={5} placeholder="The problem, desired outcome, and ideal timeline…" /></label>
-          <button className="button button--primary send-button" type="submit" disabled={status === "sending"}>{status === "sending" ? "Sending…" : <>Send project brief <FiSend /></>}</button>
-          {status !== "idle" && status !== "sending" && <p className="form-note" role="status">{status === "sent" ? "Message sent. I’ll get back to you soon." : status === "setup" ? "The form is ready—add the EmailJS values in .env to enable delivery." : "That message could not be sent. Please try again."}</p>}
+          <div className="contact-form-heading"><span>LET&apos;S TALK</span><h3>Send me a message.</h3><p>Your message will be delivered directly to my inbox.</p></div>
+          <label><span>Your name</span><input required name="name" autoComplete="name" placeholder="Enter your name" /></label>
+          <label><span>Your email</span><input required type="email" name="email" autoComplete="email" placeholder="Enter your email" /></label>
+          <label><span>Your message</span><textarea required name="message" rows={7} placeholder="Enter your message" /></label>
+          <button className="button button--primary send-button" type="submit" disabled={status === "sending"}>{status === "sending" ? "Sending…" : <>Let&apos;s talk <FiSend /></>}</button>
+          {status !== "idle" && status !== "sending" && <p className="form-note" role="status">{status === "sent" ? "Message sent successfully. I’ll get back to you soon." : "That message could not be sent. Please email me directly."}</p>}
         </form>
       </div>
     </section>
