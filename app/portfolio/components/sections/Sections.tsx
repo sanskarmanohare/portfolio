@@ -71,11 +71,11 @@ function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
 export function About() {
   return (
     <section id="about" className="section-shell content-section">
-      <SectionHeading index="01" eyebrow="About" title="Full Stack Development" copy="I'm a Full Stack Developer with 2+ years of hands-on experience building modern web applications using React, JavaScript, Python, FastAPI, Flask, SQL, HTML, and CSS. I enjoy transforming ideas into fast, responsive, and user-friendly applications. From developing intuitive frontend interfaces to building backend APIs, integrating databases, and implementing AI-powered features, I focus on creating scalable, maintainable, and high-performance solutions." />
+      <SectionHeading index="01" eyebrow="About" title="Full Stack Development" copy="I'm a Full Stack Developer with 2+ years of hands-on experience building modern web applications using React, JavaScript, Python, FastAPI, Flask, SQL, HTML, and CSS. I build responsive frontends, robust backend APIs, and database-driven applications, with experience integrating AI features to deliver scalable, maintainable, and high-performance solutions." />
       <div className="about-grid">
         <motion.div className="profile-card glass" initial={{ opacity: 0, rotateY: -12 }} whileInView={{ opacity: 1, rotateY: 0 }} viewport={{ once: true }}>
           <div className="profile-visual"><img className="about-photo" src="/sanskar-about.jpeg" alt="Sanskar Manohare" width="1152" height="2048" loading="lazy" decoding="async" /><div className="profile-photo-label"><span>BEYOND THE CODE</span><strong>Curious by nature.</strong></div></div>
-          <div className="profile-info"><span>FRONTEND DEVELOPER</span><h3>Sanskar<br />Manohare</h3><p>Focused on responsive interfaces, reusable components, UI/UX optimization, and cross-browser quality.</p></div>
+          <div className="profile-info"><span>FULL STACK DEVELOPER</span><h3>Sanskar<br />Manohare</h3><p>Focused on responsive interfaces, reusable components, UI/UX optimization, and cross-browser quality.</p></div>
         </motion.div>
         <div className="about-copy">
           <div className="metric-row">
@@ -83,7 +83,7 @@ export function About() {
             <div><strong><CountUp value={3} /></strong><span>DEVELOPMENT<br />ROLES</span></div>
           </div>
           <div className="timeline-list">
-            <div><span>FOCUS</span><h4>Frontend Product Development</h4><p>Responsive React experiences, reusable UI components, REST API integration, debugging, and performance optimization.</p></div>
+            <div><span>FOCUS</span><h4>Full Stack Development</h4><p>Responsive React experiences, reusable UI components, REST API integration, debugging, and performance optimization.</p></div>
             <div><span>EDUCATION</span><h4>B.E. Computer Science & Engineering</h4><p>Jhulelal Institute of Technology · 2019–2023 · 70%</p></div>
           </div>
           <div className="expertise-cloud">{["React.js", "JavaScript", "HTML5", "CSS3", "REST APIs", "Bootstrap", "Python", "SQL", "Flask", "Git & GitHub", "AWS Cloud"].map((item) => <span key={item}>{item}</span>)}</div>
