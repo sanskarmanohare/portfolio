@@ -8,7 +8,7 @@ import { navItems } from "./data";
 import type { Project } from "./types";
 import { AmbientBackground, CursorGlow, ScrollProgress } from "./components/effects/AmbientEffects";
 import { ProjectModal } from "./components/projects/ProjectModal";
-import { About, Contact, Experience, Hero, Projects, Skills, Statistics, TechOrbit, Testimonials } from "./components/sections/Sections";
+import { About, Contact, Experience, Hero, Projects, Skills, Statistics, TechOrbit } from "./components/sections/Sections";
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -53,7 +53,7 @@ export function Portfolio() {
     <main>
       <ScrollProgress /><CursorGlow /><AmbientBackground />
       <Header />
-      <Hero /><About /><Skills /><Experience /><Projects onProject={setProject} /><TechOrbit /><Testimonials /><Statistics /><Contact /><Footer />
+      <Hero /><About /><Skills /><Experience /><Projects onProject={setProject} /><TechOrbit /><Statistics /><Contact /><Footer />
       <ProjectModal project={project} onClose={() => setProject(null)} />
     </main>
   );

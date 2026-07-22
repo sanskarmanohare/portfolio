@@ -4,7 +4,7 @@
 import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
-import { FiArrowDown, FiArrowUpRight, FiGithub, FiLinkedin, FiMail, FiSend, FiZap } from "react-icons/fi";
+import { FiArrowDown, FiArrowUpRight, FiGithub, FiLinkedin, FiMail, FiSend } from "react-icons/fi";
 import { experienceItems, projects, roles, skillGroups, stats } from "../../data";
 import { sendContactEmail } from "../../lib/emailjs";
 import type { Project } from "../../types";
@@ -179,20 +179,6 @@ export function TechOrbit() {
   );
 }
 
-export function Testimonials() {
-  const items = [
-    { quote: "Clear communication, thoughtful execution, and a strong instinct for turning requirements into usable product flows.", label: "COLLABORATOR FEEDBACK", name: "Reference available on request" },
-    { quote: "Balances frontend polish with practical backend decisions—the kind of ownership that keeps a build moving.", label: "PROJECT FEEDBACK", name: "Reference available on request" },
-    { quote: "Approaches complex workflows with curiosity, structure, and a consistent focus on the end user.", label: "TEAM FEEDBACK", name: "Reference available on request" },
-  ];
-  return (
-    <section className="content-section testimonial-section">
-      <div className="section-shell"><SectionHeading index="06" eyebrow="Testimonials" title="Built through collaboration." copy="Representative feedback themes; named references will appear once supplied and approved." /></div>
-      <div className="marquee"><div className="marquee-track">{[...items, ...items].map((item, index) => <article className="testimonial-card glass" key={`${item.label}-${index}`}><FiZap /><blockquote>“{item.quote}”</blockquote><span>{item.label}</span><p>{item.name}</p></article>)}</div></div>
-    </section>
-  );
-}
-
 export function Statistics() {
   return <section className="section-shell stats-grid">{stats.map((stat) => <div key={stat.label}><strong><CountUp value={stat.value} suffix={stat.suffix} /></strong><span>{stat.label}</span></div>)}</section>;
 }
@@ -203,7 +189,7 @@ export function Contact() {
     <section id="contact" className="section-shell content-section contact-section">
       <div className="contact-grid">
         <motion.div className="contact-aside" initial={{ opacity: 0, x: -35 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-          <span>07 / CONTACT</span><h2>Contact Me</h2><p>I&apos;m active on LinkedIn, GitHub, and email. Have an opportunity or an idea? Let&apos;s start a conversation.</p>
+          <span>06 / CONTACT</span><h2>Contact Me</h2><p>I&apos;m active on LinkedIn, GitHub, and email. Have an opportunity or an idea? Let&apos;s start a conversation.</p>
           <div className="contact-illustration" aria-hidden="true"><div className="contact-orbit"><FiMail /></div><div className="contact-skyline"><i /><i /><i /></div></div>
           <div className="contact-links"><a href="mailto:sanskarmanohare855@gmail.com"><FiMail /> Email</a><a href="#contact"><FiLinkedin /> LinkedIn</a><a href="#contact"><FiGithub /> GitHub</a></div>
           <a className="button button--primary contact-resume" href="/Sanskar-Manohare-Resume.pdf" target="_blank" rel="noreferrer">View my résumé <FiArrowUpRight /></a>
