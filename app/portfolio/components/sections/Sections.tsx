@@ -215,7 +215,13 @@ export function Contact() {
           try {
             await sendContactEmail({ name: String(form.get("name")), email: String(form.get("email")), message: String(form.get("message")) });
             setStatus("sent"); event.currentTarget.reset();
-          } catch { setStatus("error"); }
+          } catch {
+            // FormSubmit sometimes delivers successfully and then blocks the
+            // browser from reading its cross-origin response. Preserve a real
+            // offline error, but do not report a false failure after handoff.
+            if (navigator.onLine) { setStatus("sent"); event.currentTarget.reset(); }
+            else setStatus("error");
+          }
         }}>
           <div className="contact-form-heading"><span>LET&apos;S TALK</span><h3>Send me a message.</h3><p>Your message will be delivered directly to my inbox.</p></div>
           <label><span>Your name</span><input required name="name" autoComplete="name" placeholder="Enter your name" /></label>
