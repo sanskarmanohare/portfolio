@@ -188,8 +188,11 @@ body { background: #E6FAF5; }
 .portrait-backdrop { position:absolute; inset:5% 0 0; overflow:hidden; border-radius:24% 24% 24% 24%; background:#11bdb7; box-shadow:0 24px 55px rgba(7,84,108,.13); display:grid; place-items:center; isolation:isolate; }
 .portrait-backdrop::before { content:""; position:absolute; width:78%; aspect-ratio:1; border-radius:50%; background:rgba(230,250,245,.18); border:1px solid rgba(230,250,245,.44); }
 .portrait-backdrop::after { content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(230,250,245,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(230,250,245,.12) 1px,transparent 1px); background-size:38px 38px; mask-image:linear-gradient(to bottom,transparent,#000); z-index:-1; }
+.portrait-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 43%; filter:saturate(.88) contrast(1.03); transition:transform .8s cubic-bezier(.2,.8,.2,1); }
+.hero-portrait:hover .portrait-photo { transform:scale(1.035); }
+.portrait-backdrop::after { z-index:1; opacity:.26; pointer-events:none; }
 .portrait-initials { color:#E6FAF5; font:700 clamp(6rem,12vw,10rem)/1 Space Grotesk; letter-spacing:-.14em; transform:translateX(-.06em); text-shadow:0 12px 35px rgba(7,84,108,.2); }
-.portrait-code { position:absolute; top:7%; left:8%; color:rgba(230,250,245,.75); font:600 16px Space Grotesk; }
+.portrait-code { position:absolute; z-index:2; top:7%; left:8%; color:rgba(230,250,245,.9); font:600 16px Space Grotesk; text-shadow:0 2px 12px rgba(7,84,108,.5); }
 .portrait-orbit { position:absolute; border:1px solid rgba(230,250,245,.55); border-radius:50%; animation:rotate 18s linear infinite; }
 .portrait-orbit::after { content:""; position:absolute; width:12px; height:12px; border-radius:50%; background:#E6FAF5; top:7%; left:21%; box-shadow:0 0 16px rgba(230,250,245,.8); }
 .portrait-orbit--one { width:72%; height:72%; transform:rotateX(65deg); }
@@ -200,7 +203,13 @@ body { background: #E6FAF5; }
 
 .section-heading h2,.profile-info h3,.experience-card h3,.project-content h3,.stack-story h3,.contact-aside h3,.project-modal h2 { color:#07546c; }
 .section-kicker span,.profile-info span,.stack-story>span,.contact-aside>span,.timeline-list span,.experience-card>div span,.project-content>span,.modal-topline,.modal-columns small { color:#11a8a4; }
-.profile-visual { background:linear-gradient(145deg,#11bdb7,#58d8cf); }
+.profile-visual { background:linear-gradient(145deg,#11bdb7,#58d8cf); overflow:hidden; }
+.about-photo { width:100%; height:100%; object-fit:cover; object-position:50% 35%; filter:saturate(.78) contrast(1.04); transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .5s; }
+.profile-card:hover .about-photo { transform:scale(1.04); filter:saturate(.92) contrast(1.02); }
+.profile-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 48%,rgba(7,84,108,.76)); pointer-events:none; }
+.profile-photo-label { position:absolute; z-index:2; left:24px; right:24px; bottom:20px; display:grid; gap:6px; color:#E6FAF5; }
+.profile-photo-label span { font:600 8px Space Grotesk; letter-spacing:.2em; }
+.profile-photo-label strong { font:600 1.35rem Space Grotesk; letter-spacing:-.03em; }
 .monogram { color:#E6FAF5; -webkit-text-stroke:0; filter:none; }
 .orbit-ring { border-color:rgba(230,250,245,.6); }
 .timeline-list>div::before { background:#11bdb7; box-shadow:0 0 12px rgba(17,189,183,.4); }
