@@ -71,7 +71,7 @@ function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
 export function About() {
   return (
     <section id="about" className="section-shell content-section">
-      <SectionHeading index="01" eyebrow="About" title="Frontend engineering, shaped around the user." copy="I build scalable, responsive web applications with React.js, JavaScript, HTML5, and CSS3—combining clean interface craft with dependable REST API integration." />
+      <SectionHeading index="01" eyebrow="About" title="Full Stack Development" copy="I'm a Full Stack Developer with 2+ years of hands-on experience building modern web applications using React, JavaScript, Python, FastAPI, Flask, SQL, HTML, and CSS. I enjoy transforming ideas into fast, responsive, and user-friendly applications. From developing intuitive frontend interfaces to building backend APIs, integrating databases, and implementing AI-powered features, I focus on creating scalable, maintainable, and high-performance solutions." />
       <div className="about-grid">
         <motion.div className="profile-card glass" initial={{ opacity: 0, rotateY: -12 }} whileInView={{ opacity: 1, rotateY: 0 }} viewport={{ once: true }}>
           <div className="profile-visual"><img className="about-photo" src="/sanskar-about.jpeg" alt="Sanskar Manohare" width="1152" height="2048" loading="lazy" decoding="async" /><div className="profile-photo-label"><span>BEYOND THE CODE</span><strong>Curious by nature.</strong></div></div>
